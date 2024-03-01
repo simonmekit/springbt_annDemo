@@ -13,6 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ModelAndViewcontroller {
 
+	@GetMapping("/showViewPage")
+	public String passParameterWithModel(Model model){
+		List<String> states = Arrays.asList("DC", "MD", "CA", "WA");
+		model.addAttribute("states", states);
+		return "viewPage";
+	}
 	@GetMapping("/goToViewPage")
 	public ModelAndView passParametersWithModelAndView() {
 		String st = "Welcome to the Page";
